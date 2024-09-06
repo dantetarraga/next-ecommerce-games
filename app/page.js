@@ -1,12 +1,11 @@
-"use client";
+'use client'
 
-import styles from "./page.module.css";
-import { Button } from "semantic-ui-react";
+import { Button } from 'semantic-ui-react'
 
-export default function Home() {
+export default function Home () {
   return (
-    <div className={styles.page}>
+    <div>
       <Button primary>Button</Button>
     </div>
-  );
+  )
 }
