@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import 'semantic-ui-css/semantic.min.css'
+import "@/app/scss/global.scss";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
