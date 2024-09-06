@@ -2,7 +2,7 @@ import style from './auth-layout.module.scss'
 
 const AuthLayout = ({ children }) => {
   return (
-    <section>
+    <section className={style.container}>
       Auth Layout
       {children}
     </section>
