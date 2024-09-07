@@ -2,9 +2,9 @@
 
 import { Form, FormButton, FormGroup, FormInput } from 'semantic-ui-react'
 import { useFormik } from 'formik'
-import registerSchema from '../../schemas/registerSchema'
 import { Auth } from '@/api'
 import { useRouter } from 'next/navigation'
+import { registerSchema } from '../../schemas'
 
 const RegisterForm = () => {
   const router = useRouter()
