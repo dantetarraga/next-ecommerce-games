@@ -4,8 +4,10 @@ import { Form, FormButton, FormGroup, FormInput } from 'semantic-ui-react'
 import { useFormik } from 'formik'
 import registerSchema from '../../schemas/registerSchema'
 import { Auth } from '@/api'
+import { useRouter } from 'next/navigation'
 
 const RegisterForm = () => {
+  const router = useRouter()
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -17,6 +19,7 @@ const RegisterForm = () => {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       await Auth.register(formValue)
+      router.push('/auth/sign-in')
     }
   })
 
