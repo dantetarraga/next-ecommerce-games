@@ -19,7 +19,7 @@ const RegisterForm = () => {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       await Auth.register(formValue)
-      router.push('/auth/sign-in')
+      router.push('/')
     }
   })
 

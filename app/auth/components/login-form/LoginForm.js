@@ -1,10 +1,13 @@
 'use client'
 
 import { useFormik } from 'formik'
-import { Button, Form, FormInput } from 'semantic-ui-react'
+import { Form, FormButton, FormInput } from 'semantic-ui-react'
 import { loginSchema } from '../../schemas'
+import { useRouter } from 'next/navigation'
+import { Auth } from '@/api'
 
 const LoginForm = () => {
+  const router = useRouter()
   const formik = useFormik({
     initialValues: {
       identifier: '',
@@ -13,7 +16,8 @@ const LoginForm = () => {
     validationSchema: loginSchema,
     validateOnChange: false,
     onSubmit: async (formValue) => {
-      console.log(formValue)
+      await Auth.login(formValue)
+      router.push('/')
     }
   })
 
@@ -37,7 +41,9 @@ const LoginForm = () => {
         error={formik.errors.password}
       />
 
-      <Button fluid primary type='submit' loading={formik.isSubmitting}>Iniciar sesión</Button>
+      <FormButton fluid primary type='submit' loading={formik.isSubmitting}>
+        Iniciar sesión
+      </FormButton>
     </Form>
   )
 }
