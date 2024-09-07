@@ -2,7 +2,7 @@
 
 import { Form, FormButton, FormGroup, FormInput } from 'semantic-ui-react'
 import { useFormik } from 'formik'
-import { Auth } from '@/api'
+import { Auth } from '@/app/api'
 import { useRouter } from 'next/navigation'
 import { registerSchema } from '../../schemas'
 
