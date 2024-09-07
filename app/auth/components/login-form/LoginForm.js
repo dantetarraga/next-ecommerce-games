@@ -5,9 +5,11 @@ import { Form, FormButton, FormInput } from 'semantic-ui-react'
 import { loginSchema } from '../../schemas'
 import { useRouter } from 'next/navigation'
 import { Auth } from '@/api'
+import { useAuthStore } from '@/store'
 
 const LoginForm = () => {
   const router = useRouter()
+  const user = useAuthStore(state => state.user)
   const formik = useFormik({
     initialValues: {
       identifier: '',
@@ -20,6 +22,8 @@ const LoginForm = () => {
       router.push('/')
     }
   })
+
+  console.log(user)
 
   return (
     <Form onSubmit={formik.handleSubmit}>
