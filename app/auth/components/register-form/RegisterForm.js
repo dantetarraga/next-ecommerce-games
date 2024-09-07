@@ -3,6 +3,7 @@
 import { Form, FormButton, FormGroup, FormInput } from 'semantic-ui-react'
 import { useFormik } from 'formik'
 import registerSchema from '../../schemas/registerSchema'
+import { Auth } from '@/api'
 
 const RegisterForm = () => {
   const formik = useFormik({
@@ -14,8 +15,8 @@ const RegisterForm = () => {
     },
     validationSchema: registerSchema,
     validateOnChange: false,
-    onSubmit: values => {
-      console.log(values)
+    onSubmit: async (formValue) => {
+      await Auth.register(formValue)
     }
   })
 
