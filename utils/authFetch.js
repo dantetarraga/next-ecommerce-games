@@ -1,9 +1,29 @@
-import { Token } from '@/app/api'
+import { Auth, Token } from '@/app/api'
 
 export async function authFetch (url, params) {
   const token = Token.getToken()
 
+  const logout = () => {
+    Token.removeToken()
+    window.location.replace('/')
+  }
+
   if (!token) {
-    throw new Error('No token found')
+    logout()
+  } else {
+    if (Token.hasExpired(token)) {
+      logout()
+    } else {
+      const paramsTemp = {
+        ...params?.headers,
+        Authorization: `Bearer ${token}`
+      }
+
+      try {
+        return await fetch(url, paramsTemp)
+      } catch (error) {
+        return error
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { ENV } from '@/utils'
+import { Token } from './token'
 
 export class Auth {
   static async register (data) {
@@ -49,5 +50,9 @@ export class Auth {
       console.error('Error during login:', error)
       throw error
     }
+  }
+
+  static async logout () {
+    Token.removeToken()
   }
 }
