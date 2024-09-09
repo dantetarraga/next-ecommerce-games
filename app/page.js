@@ -13,10 +13,10 @@ export default function Home () {
 
   return (
     <div>
-      <h1>Welcome {user?.name}</h1>
+      {/* <h1>Welcome {user?.name}</h1>
 
       <Button primary onClick={onClick}>Button</Button>
-      <Button onClick={onLogout}>Cerrar sesion</Button>
+      <Button onClick={onLogout}>Cerrar sesion</Button> */}
     </div>
   )
 }
