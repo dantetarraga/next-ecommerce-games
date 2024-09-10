@@ -4,6 +4,7 @@ import styles from './Account.module.scss'
 import { Button, Icon, Label } from 'semantic-ui-react'
 import { useRouter } from 'next/navigation'
 import { useAuthStore } from '@/store'
+import cn from 'classnames'
 
 const total = 5
 
@@ -26,19 +27,13 @@ const Account = () => {
         {total > 0 && <Label circular color='red'>{total}</Label>}
       </Button>
 
-      {
-        !user
-          ? (
-            <Button icon>
-              <Icon name='user' onClick={goToLogin} />
-            </Button>
-            )
-          : (
-            <Button icon className={styles.user}>
-              <Icon name='user outline' onClick={goToAccount} />
-            </Button>
-            )
-      }
+      <Button
+        icon
+        className={cn({ [styles.user]: !user })}
+        onClick={!user ? goToLogin : goToAccount}
+      >
+        <Icon name='user outline' />
+      </Button>
     </div>
   )
 }

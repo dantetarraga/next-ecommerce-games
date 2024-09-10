@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './TopBar.module.scss'
 import { Image } from 'semantic-ui-react'
-import { Account } from '@/ui'
+import { Account, Menu } from '@/ui'
 
 const TobBar = (props) => {
   return (
@@ -13,7 +13,7 @@ const TobBar = (props) => {
       </div>
 
       <div className={styles.center}>
-        <h1>Games</h1>
+        <Menu />
       </div>
 
       <div className={styles.right}>

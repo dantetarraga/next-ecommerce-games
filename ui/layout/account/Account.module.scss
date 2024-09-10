@@ -34,4 +34,18 @@
       margin-left: 5px;
     }
   }
+
+  .user {
+    background-color: $background-tertiary !important;
+    border-radius: 10px;
+    border: 2px solid $background-tertiary;
+
+    &:hover {
+      border: 2px solid $primary;
+
+      i {
+        color: $text-primary;
+      }
+    }
+  }
 }

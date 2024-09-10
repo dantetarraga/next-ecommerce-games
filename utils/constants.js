@@ -6,6 +6,7 @@ export const ENV = {
       REGISTER: '/auth/local/register',
       LOGIN: '/auth/local'
     },
-    USER_ME: '/users/me'
+    USER_ME: '/users/me',
+    PLATFORMS: '/platforms'
   }
 }
