@@ -8,5 +8,6 @@ const initialState = {
 export const useUiStore = create((set) => ({
   ...initialState,
   toggleContainer: () => set((state) => ({ isContainer: !state.isContainer })),
-  toggleRelative: () => set((state) => ({ isRelative: !state.isRelative }))
+  toggleRelative: () => set((state) => ({ isRelative: !state.isRelative })),
+  setIsRelative: (value) => set({ isRelative: value })
 }))
