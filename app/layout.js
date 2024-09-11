@@ -6,7 +6,7 @@ import styles from './main-layout.module.scss'
 import { Container } from 'semantic-ui-react'
 import { useUiStore } from '@/store'
 import cn from 'classnames'
-import { TopBar } from '@/ui'
+import { Footer, TopBar } from '@/ui'
 
 export default function RootLayout ({ children }) {
   const isContainer = useUiStore(state => state.isContainer)
@@ -27,6 +27,7 @@ export default function RootLayout ({ children }) {
           </div>
         </Container>
 
+        <Footer />
       </body>
     </html>
   )
