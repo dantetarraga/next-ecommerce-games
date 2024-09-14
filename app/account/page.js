@@ -61,7 +61,7 @@ const Account = () => {
     <Container>
       <Info />
 
-      <Tab manu={{ secondary: true, pointing: true }} panes={panes} className={styles.tabs} />
+      <Tab menu={{ secondary: true, pointing: true }} panes={panes} className={styles.tabs} />
     </Container>
   )
 }
