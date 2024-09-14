@@ -4,10 +4,10 @@ import styles from './Account.module.scss'
 import { useUiStore } from '@/store'
 import { useEffect } from 'react'
 import { Container, Tab, TabPane } from 'semantic-ui-react'
-import Info from './components/info/Info'
+import { ChangeNameForm, Info } from './components'
 
 const Account = () => {
-  const setIsRelative = useUiStore(state => state.setIsRelative)
+  const setIsRelative = useUiStore((state) => state.setIsRelative)
 
   useEffect(() => {
     setIsRelative(true)
@@ -42,7 +42,7 @@ const Account = () => {
       menuItem: { icon: 'settings', content: 'Ajustes' },
       render: () => (
         <TabPane attached={false}>
-          <h1>Mis ajustes</h1>
+          <ChangeNameForm />
         </TabPane>
       )
     },
@@ -61,7 +61,11 @@ const Account = () => {
     <Container>
       <Info />
 
-      <Tab menu={{ secondary: true, pointing: true }} panes={panes} className={styles.tabs} />
+      <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={panes}
+        className={styles.tabs}
+      />
     </Container>
   )
 }
