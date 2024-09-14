@@ -2,11 +2,16 @@ import { Form, FormButton, FormInput } from 'semantic-ui-react'
 import styles from './ChangeNameForm.module.scss'
 import { changeNameSchema } from '../../schemas/changeNameSchema'
 import { useFormik } from 'formik'
+import { useAuthStore } from '@/store'
 
 const ChangeNameForm = () => {
+  const onUpdateUser = useAuthStore((state) => state.updateUserInfo)
+  const user = useAuthStore((state) => state.user)
+
   const formik = useFormik({
     initialValues: {
-      name: ''
+      firstName: user.firstName,
+      lastName: user.lastName
     },
     validationSchema: changeNameSchema,
     validateOnChange: false,
@@ -20,11 +25,18 @@ const ChangeNameForm = () => {
 
       <div className={styles.content}>
         <FormInput
-          name='name'
+          name='firstName'
           placeholder='Nombre y apellidos'
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.errors.name}
+        />
+        <FormInput
+          name='lastName'
+          placeholder='Apellidos'
+          value={formik.values.lastName}
+          onChange={formik.handleChange}
+          error={formik.errors.lastName}
         />
         <FormButton type='submit' loading={formik.isSubmitting}>Guardar</FormButton>
       </div>
