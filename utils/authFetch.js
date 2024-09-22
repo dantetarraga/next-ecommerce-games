@@ -1,7 +1,8 @@
-import { Auth, Token } from '@/app/api'
+import { Token } from '@/app/api'
 
 export async function authFetch (url, params) {
   const token = Token.getToken()
+  console.log('acces', token.state.token)
 
   const logout = () => {
     Token.removeToken()
@@ -15,8 +16,11 @@ export async function authFetch (url, params) {
       logout()
     } else {
       const paramsTemp = {
-        ...params?.headers,
-        Authorization: `Bearer ${token}`
+        ...params,
+        haders: {
+          ...params?.headers,
+          Authorization: `Bearer ${token}`
+        }
       }
 
       try {
