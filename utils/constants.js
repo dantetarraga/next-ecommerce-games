@@ -8,6 +8,7 @@ export const ENV = {
     },
     USER_ME: '/users/me',
     USERS: '/users',
+    GAME: '/games',
     PLATFORMS: '/platforms'
   }
 }

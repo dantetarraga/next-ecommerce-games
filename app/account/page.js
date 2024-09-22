@@ -5,6 +5,8 @@ import { useUiStore } from '@/store'
 import { useEffect } from 'react'
 import { Container, Tab, TabPane } from 'semantic-ui-react'
 import { ChangeNameForm, Info } from './components'
+import { Separator } from '@/components'
+import ChangeEmailForm from './components/settings/ChangeEmailForm'
 
 const Account = () => {
   const setIsRelative = useUiStore((state) => state.setIsRelative)
@@ -43,6 +45,8 @@ const Account = () => {
       render: () => (
         <TabPane attached={false}>
           <ChangeNameForm />
+          <ChangeEmailForm />
+          <Separator height={80} />
         </TabPane>
       )
     },

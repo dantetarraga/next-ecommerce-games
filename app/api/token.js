@@ -6,7 +6,12 @@ export class Token {
   }
 
   static getToken () {
-    return localStorage.getItem('access-token')
+    const storedData = localStorage.getItem('access-token')
+    if (storedData) {
+      const parsedData = JSON.parse(storedData)
+      return parsedData.state.token
+    }
+    return null
   }
 
   static removeToken () {
